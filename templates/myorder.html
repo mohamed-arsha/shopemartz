@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="{% url 'index' %}">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Myorder</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="site-section">
+      <div class="container">
+        <div class="row mb-5">
+          <form class="col-md-12" method="post">
+            <div class="site-blocks-table">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="product-thumbnail">Order ID</th>
+                    <th class="product-name">Product</th>
+                    <th class="product-name">Product Image</th>
+                    <th class="product-price">Quantity</th>
+                    <th class="product-quantity">Total Price</th>
+                    <th class="product-quantity">Delivery Mode</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for i in order %}
+                  <tr>
+                    <td class="product-name">
+                      <h2 class="h5 text-black">{{ i.orderid }}</h2>
+                    </td>
+                      <td class="product-thumbnail">
+                      <img src="{{ i.product_image.url }}" alt="Image" class="img-fluid">
+                    </td>
+                      <td class="product-name">
+                          <h2 class="h5 text-black">{{ i.prod }}</h2>
+                        </td>
+                       <td class="product-name">
+                      <h2 class="h5 text-black">{{ i.quantity }}</h2>
+                    </td>
+                  <td class="product-name">
+                      <h2 class="h5 text-black">{{ i.total_price }}</h2>
+                    </td>
+                  <td class="product-name">
+                      <h2 class="h5 text-black">{{ i.deliverytype }}</h2>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

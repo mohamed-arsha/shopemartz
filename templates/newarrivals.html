@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h1 style="text-align: center;color:black; ">New ARRIVALS</h1>
+    <div class="row mb-5">
+              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+                <div class="block-4 text-center border">
+                  <figure class="block-4-image">
+                    <a href="{% url 'shopdetail' id=new.id %}"><img src="{{ new.product_image.url }}" alt="Image placeholder" class="img-fluid" style="width:190px;height:200px;"></a>
+                      <p>{{ new.category }}</p>
+                  </figure>
+                  <div class="block-4-text p-4">
+                    <h3><a href="#">{{ new.product_name }}</a></h3>
+                    <p class="mb-0">{{ new.product_description }}</p>
+                    <p class="text-primary font-weight-bold">&#8377;{{ new.price }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endblock %}
